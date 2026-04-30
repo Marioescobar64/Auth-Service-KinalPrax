@@ -1,0 +1,42 @@
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: authservice-postgres
+    environment:
+      POSTGRES_DB: auth_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d auth_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    container_name: authservice-api
+    ports:
+      - "5033:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres-db;Port=5432;Database=auth_db;Username=postgres;Password=admin
+
+      - ASPNETCORE_ENVIRONMENT=Development
+
+      - ASPNETCORE_URLS=http://+:8080
+
+      - JwtSettings__SecretKey=clavesecreta123
+      - JwtSettings__Issuer=AuthService
+      - JwtSettings__Audience=AuthService
+      - JwtSettings__ExpiryInMinutes=30 
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

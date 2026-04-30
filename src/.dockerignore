@@ -1,0 +1,26 @@
+# Git / IDE
+.git/
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Build outputs
+**/bin/
+**/obj/
+**/TestResults/
+
+# Docker
+Dockerfile
+docker-compose*.yml
+
+# Docs / misc
+README.md
+LICENSE
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Environment files (si los usas)
+.env
