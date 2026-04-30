@@ -49,7 +49,7 @@ public static class DataSeeder
                     Surname = "User",
                     Username = "admin",
                     Email = "admin@kinalprax.local",
-                    Password = passwordHasher.HashPassword("Admin"),
+                    Password = passwordHasher.HashPassword("Admin1234!"),
                    //  Password = "12345678",
                     Status = true,
                     UserProfile = new UserProfile
