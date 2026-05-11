@@ -4,7 +4,7 @@ namespace AuthService.Api.Extensions;
 
 public static class SecurityExtensions
 {
-	private static readonly string[] DefaultAllowedOrigins = ["http://localhost:3000", "https://localhost:3001", "http://localhost:5173"];
+	private static readonly string[] DefaultAllowedOrigins = ["http://localhost:3000", "https://localhost:3001", "http://localhost:5174"];
     private static readonly string[] DefaultAdminOrigins = ["https://admin.localhost"];
     private static readonly string[] AllowedHttpMethods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
     private static readonly string[] AdminHttpMethods = ["GET", "POST", "PUT", "DELETE"];
