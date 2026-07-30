@@ -52,12 +52,3 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
-
-# Publish output
-net8.0/
-publish/
-
-# Node
-node_modules/
-package-lock.json
-pnpm-lock.yaml
