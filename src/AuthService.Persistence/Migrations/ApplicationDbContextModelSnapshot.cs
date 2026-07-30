@@ -185,27 +185,19 @@ namespace AuthService.Persistence.Migrations
             modelBuilder.Entity("AuthService.Domain.Entities.UserProfile", b =>
                 {
                     b.Property<string>("Id")
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)")
+                        .HasColumnType("text")
                         .HasColumnName("id");
 
-                    b.Property<string>("Bio")
-                        .IsRequired()
+                    b.Property<string>("Phone")
                         .HasColumnType("text")
-                        .HasColumnName("bio");
+                        .HasColumnName("phone");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date_of_birth");
-
-                    b.Property<string>("ProfilePictureUrl")
-                        .IsRequired()
+                    b.Property<string>("ProfilePicture")
                         .HasColumnType("text")
-                        .HasColumnName("profile_picture_url");
+                        .HasColumnName("profile_picture");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasMaxLength(16)
                         .HasColumnType("character varying(16)")
                         .HasColumnName("user_id");
 
